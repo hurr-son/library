@@ -27,7 +27,9 @@ addBookToLibrary(book2);
 function displayLibrary() {
     
     for(let book of myLibrary) {
+
         // Add to an html table element
+        
         let row = document.createElement('tr')
         let id = document.createElement('td')
         let title = document.createElement('td')
@@ -49,17 +51,13 @@ function displayLibrary() {
         row.appendChild(pages);
         row.appendChild(status);
         table.appendChild(row)
-        
-        
+       
     }
-
-    
 }
     
     
 displayLibrary()
 
-console.log(table)
 
 
 
