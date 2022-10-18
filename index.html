@@ -10,13 +10,29 @@
 </head>
 <body>
     <main>
+        <button>NEW BOOK</button>
+        <form>
+            <label for="title">Book Title</label>
+            <input type="text" name="title" id="title"><br>
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author"><br>
+            <label for="pages">Pages</label>
+            <input type="text" name="pages" id="pages"><br>
+            <p>Have you read this book?</p>
+            <input type="radio" name="Yes" id="yes" value="Yes">
+            <label for="yes">Yes</label>
+            <input type="radio" name="No" id="no" value="No">
+            <label for="no">No</label>
+            <button type="submit">Add Book</button>
+        </form>
+        
         <table id="library-table">
             <tr>
                 <th>ID</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
-                <th>Status</th>
+                <th>Read?</th>
             </tr>
         </table>
     </main>
