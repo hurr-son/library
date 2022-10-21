@@ -4,8 +4,8 @@ let authorInput = document.getElementById('author');
 let pageInput = document.getElementById('pages');
 let yesInput = document.getElementById('yes');
 let noInput = document.getElementById('no');
-console.log(noInput);
 let addButton = document.getElementById('addButton');
+let read = ''
 
 
 let myLibrary = [];
@@ -23,29 +23,25 @@ let book1 = new Book('Cookbook', 'Some Person', '545', 'yes');
 let book2 = new Book('Guide To Stuff', 'Some Guy', '243', 'no');
 let book3 = new Book('How to Win Friends', 'Bobby Bob', '230', 'no');
 
-
+yesInput.addEventListener('click', function() {
+    if(yesInput.checked === true) {
+        read = 'Yes'
+     }
+})
+noInput.addEventListener('click', function() {
+    if(noInput.checked === true) {
+        read = 'No'
+     }
+})
 
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook)
-    
+    newBook.id = myLibrary.indexOf(newBook);
 }
-addButton.addEventListener('click', function() {
-    let read = ''
-    if(yesInput.checked === true) {
-       read = 'Yes'
-    }
-    if(noInput.checked === true) {
-        read = 'No'
-     }
-  let book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
-  addBookToLibrary(book)
-})
 
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3)
+
 
 
 
@@ -83,9 +79,15 @@ function displayLibrary() {
 }
     
     
-displayLibrary()
+
+addButton.addEventListener('click', function() {
+    
+    let book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
+    addBookToLibrary(book)
+    displayLibrary()
+
+})
 
 
-console.table(book1)
 
 
