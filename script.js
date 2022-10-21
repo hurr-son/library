@@ -1,4 +1,11 @@
 let table = document.getElementById('library-table');
+let titleInput = document.getElementById('title');
+let authorInput = document.getElementById('author');
+let pageInput = document.getElementById('pages');
+let yesInput = document.getElementById('yes');
+let noInput = document.getElementById('no');
+console.log(noInput);
+let addButton = document.getElementById('addButton');
 
 
 let myLibrary = [];
@@ -11,18 +18,37 @@ function Book(title, author, pages, status) {
     this.status = status
 }
 
-function addBookToLibrary(newBook) {
-    myLibrary.push(newBook)
-    
-}
 
 let book1 = new Book('Cookbook', 'Some Person', '545', 'yes');
 let book2 = new Book('Guide To Stuff', 'Some Guy', '243', 'no');
 let book3 = new Book('How to Win Friends', 'Bobby Bob', '230', 'no');
 
+
+
+
+function addBookToLibrary(newBook) {
+    myLibrary.push(newBook)
+    
+}
+addButton.addEventListener('click', function() {
+    let read = ''
+    if(yesInput.checked === true) {
+       read = 'Yes'
+    }
+    if(noInput.checked === true) {
+        read = 'No'
+     }
+  let book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
+  addBookToLibrary(book)
+})
+
+
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 addBookToLibrary(book3)
+
+
+
 
 
 function displayLibrary() {
