@@ -7,8 +7,15 @@ let noInput = document.getElementById('no');
 let addButton = document.getElementById('addButton');
 let read = '';
 let book = {};
-
 let myLibrary = [];
+let row = '';
+let id = '';
+let title = '';
+let author = '';
+let pages = '';
+let status = '';
+let remove = '';
+
 
 
 function Book(title, author, pages, status) {
@@ -25,25 +32,19 @@ function addBookToLibrary(newBook) {
     newBook.id = myLibrary.indexOf(newBook);
 }
 
-
-
-
-
-
-
-
 function displayLibrary() {
     
-    
-        
         // Add to an html table element
         
-        let row = document.createElement('tr')
-        let id = document.createElement('td')
-        let title = document.createElement('td')
-        let author = document.createElement('td')
-        let pages = document.createElement('td')
-        let status = document.createElement('td')
+        row = document.createElement('tr')
+        id = document.createElement('td')
+        title = document.createElement('td')
+        author = document.createElement('td')
+        pages = document.createElement('td')
+        status = document.createElement('td')
+        remove = document.createElement('td')
+        let rmButton = document.createElement('button');
+        rmButton.style.padding = '.4rem'
         
         id.innerHTML = `${book.id}`;
         title.innerHTML = `${book.title}`;
@@ -58,6 +59,8 @@ function displayLibrary() {
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(status);
+        row.appendChild(remove);
+        remove.appendChild(rmButton)
         table.appendChild(row)
         
     }
@@ -84,5 +87,15 @@ addButton.addEventListener('click', function() {
 })
 
 
+rmButton.addEventListener('click', function() {
 
+    row.removeChild(id);
+    row.removeChild(title);
+    row.removeChild(author);
+    row.removeChild(pages);
+    row.removeChild(status);
+    row.removeChild(remove);
+    remove.removeChild(rmButton);
+    table.removeChild(row);
 
+})
