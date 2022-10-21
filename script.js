@@ -12,22 +12,23 @@ function Book(title, author, pages, status) {
 }
 
 function addBookToLibrary(newBook) {
-    myLibrary.unshift(newBook)
+    myLibrary.push(newBook)
     
 }
 
 let book1 = new Book('Cookbook', 'Some Person', '545', 'yes');
 let book2 = new Book('Guide To Stuff', 'Some Guy', '243', 'no');
-
+let book3 = new Book('How to Win Friends', 'Bobby Bob', '230', 'no');
 
 addBookToLibrary(book1);
 addBookToLibrary(book2);
+addBookToLibrary(book3)
 
 
 function displayLibrary() {
     
     for(let book of myLibrary) {
-
+        book.id = myLibrary.indexOf(book);
         // Add to an html table element
         
         let row = document.createElement('tr')
@@ -37,7 +38,7 @@ function displayLibrary() {
         let pages = document.createElement('td')
         let status = document.createElement('td')
         
-        id.innerHTML = `${myLibrary.indexOf(book)}`;
+        id.innerHTML = `${book.id}`;
         title.innerHTML = `${book.title}`;
         author.innerHTML = `${book.author}`;
         pages.innerHTML = `${book.pages}`;
@@ -59,6 +60,6 @@ function displayLibrary() {
 displayLibrary()
 
 
-
+console.table(book1)
 
 
