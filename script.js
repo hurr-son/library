@@ -5,8 +5,8 @@ let pageInput = document.getElementById('pages');
 let yesInput = document.getElementById('yes');
 let noInput = document.getElementById('no');
 let addButton = document.getElementById('addButton');
-let read = ''
-
+let read = '';
+let book = {};
 
 let myLibrary = [];
 
@@ -18,21 +18,6 @@ function Book(title, author, pages, status) {
     this.status = status
 }
 
-
-let book1 = new Book('Cookbook', 'Some Person', '545', 'yes');
-let book2 = new Book('Guide To Stuff', 'Some Guy', '243', 'no');
-let book3 = new Book('How to Win Friends', 'Bobby Bob', '230', 'no');
-
-yesInput.addEventListener('click', function() {
-    if(yesInput.checked === true) {
-        read = 'Yes'
-     }
-})
-noInput.addEventListener('click', function() {
-    if(noInput.checked === true) {
-        read = 'No'
-     }
-})
 
 
 function addBookToLibrary(newBook) {
@@ -49,8 +34,8 @@ function addBookToLibrary(newBook) {
 
 function displayLibrary() {
     
-    for(let book of myLibrary) {
-        book.id = myLibrary.indexOf(book);
+    
+        
         // Add to an html table element
         
         let row = document.createElement('tr')
@@ -74,15 +59,25 @@ function displayLibrary() {
         row.appendChild(pages);
         row.appendChild(status);
         table.appendChild(row)
-       
+        
     }
-}
-    
-    
+
+
+
+yesInput.addEventListener('click', function() {
+    if(yesInput.checked === true) {
+        read = 'Yes'
+     }
+})
+noInput.addEventListener('click', function() {
+    if(noInput.checked === true) {
+        read = 'No'
+     }
+})
 
 addButton.addEventListener('click', function() {
     
-    let book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
+    book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     displayLibrary()
 
