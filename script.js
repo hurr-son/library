@@ -15,7 +15,7 @@ let author = '';
 let pages = '';
 let status = '';
 let remove = '';
-
+let rmButton = '';
 
 
 function Book(title, author, pages, status) {
@@ -43,8 +43,10 @@ function displayLibrary() {
         pages = document.createElement('td')
         status = document.createElement('td')
         remove = document.createElement('td')
-        let rmButton = document.createElement('button');
-        rmButton.style.padding = '.4rem'
+        rmButton = document.createElement('button');
+        rmButton.style.padding = '.1rem';
+        rmButton.innerHTML = 'X';
+        rmButton.classList.add('remove-button');
         
         id.innerHTML = `${book.id}`;
         title.innerHTML = `${book.title}`;
@@ -64,9 +66,9 @@ function displayLibrary() {
         table.appendChild(row)
         
     }
-
-
-
+    
+    
+    
 yesInput.addEventListener('click', function() {
     if(yesInput.checked === true) {
         read = 'Yes'
@@ -84,11 +86,15 @@ addButton.addEventListener('click', function() {
     addBookToLibrary(book)
     displayLibrary()
 
+    rmButton = document.querySelector('.remove-button')
+    
 })
 
 
-rmButton.addEventListener('click', function() {
 
+
+
+rmButton.addEventListener('click', function(){
     row.removeChild(id);
     row.removeChild(title);
     row.removeChild(author);
@@ -97,5 +103,5 @@ rmButton.addEventListener('click', function() {
     row.removeChild(remove);
     remove.removeChild(rmButton);
     table.removeChild(row);
-
-})
+    
+});
