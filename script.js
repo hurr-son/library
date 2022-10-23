@@ -15,7 +15,7 @@ let author = '';
 let pages = '';
 let status = '';
 let remove = '';
-let rmButton = '';
+let rmButton = undefined;
 
 
 function Book(title, author, pages, status) {
@@ -86,22 +86,8 @@ addButton.addEventListener('click', function() {
     addBookToLibrary(book)
     displayLibrary()
 
-    rmButton = document.querySelector('.remove-button')
-    
 })
 
-
-
-
-
-rmButton.addEventListener('click', function(){
-    row.removeChild(id);
-    row.removeChild(title);
-    row.removeChild(author);
-    row.removeChild(pages);
-    row.removeChild(status);
-    row.removeChild(remove);
-    remove.removeChild(rmButton);
-    table.removeChild(row);
-    
-});
+function removeBook(book){
+    myLibrary.splice(book.id)
+}
