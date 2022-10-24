@@ -14,8 +14,8 @@ let title = '';
 let author = '';
 let pages = '';
 let status = '';
-let remove = '';
-let rmButton = undefined;
+let readSelect ='';
+
 
 
 function Book(title, author, pages, status) {
@@ -40,7 +40,14 @@ function createTableElements(){
         author = document.createElement('td')
         pages = document.createElement('td')
         status = document.createElement('td')
-        remove = document.createElement('td')
+        readSelect = document.createElement('SELECT')
+        let option1 = document.createElement('option');
+        let option2 = document.createElement('option');
+        option1.text = 'Yes';
+        option2.text = 'No';
+        readSelect.add(option1);
+        readSelect.add(option2);
+
       }
 
 function createDeleteButton(){
@@ -57,7 +64,7 @@ function insertTableData(){
         title.innerHTML = `${book.title}`;
         author.innerHTML = `${book.author}`;
         pages.innerHTML = `${book.pages}`;
-        status.innerHTML = `${book.status}`;
+        readSelect.value = read
     }
 
 function appendTableElements(){ 
@@ -66,13 +73,13 @@ function appendTableElements(){
         row.appendChild(title);
         row.appendChild(author);
         row.appendChild(pages);
-        row.appendChild(status);
+        row.appendChild(readSelect);
         table.appendChild(row)
     }
     
 yesInput.addEventListener('click', function() {
     if(yesInput.checked === true) {
-        read = 'Yes'
+        read = 'Yes'  
      }
 })
 noInput.addEventListener('click', function() {
@@ -87,7 +94,6 @@ addBookToLibrary(book)
     createTableElements()
     insertTableData()
     appendTableElements()
-
 
 
 addButton.addEventListener('click', function() {
