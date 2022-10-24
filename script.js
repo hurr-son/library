@@ -31,11 +31,9 @@ function addBookToLibrary(newBook) {
     myLibrary.push(newBook)
     newBook.id = myLibrary.indexOf(newBook);
 }
-
-function displayLibrary() {
-    
-        // Add to an html table element
         
+function createTableElements(){  
+
         row = document.createElement('tr')
         id = document.createElement('td')
         title = document.createElement('td')
@@ -43,19 +41,27 @@ function displayLibrary() {
         pages = document.createElement('td')
         status = document.createElement('td')
         remove = document.createElement('td')
-        rmButton = document.createElement('button');
-        rmButton.style.padding = '.1rem';
-        rmButton.innerHTML = 'X';
-        rmButton.classList.add('remove-button');
+      }
+
+function createDeleteButton(){
+
+    rmButton = document.createElement('button');
+    rmButton.style.padding = '.1rem';
+    rmButton.innerHTML = 'X';
+    rmButton.classList.add('remove-button');
+}
         
+function insertTableData(){
+
         id.innerHTML = `${book.id}`;
         title.innerHTML = `${book.title}`;
         author.innerHTML = `${book.author}`;
         pages.innerHTML = `${book.pages}`;
         status.innerHTML = `${book.status}`;
+    }
 
-        // Append element to DOM to display on page
-        
+function appendTableElements(){ 
+
         row.appendChild(id);
         row.appendChild(title);
         row.appendChild(author);
@@ -64,10 +70,7 @@ function displayLibrary() {
         row.appendChild(remove);
         remove.appendChild(rmButton)
         table.appendChild(row)
-        
     }
-    
-    
     
 yesInput.addEventListener('click', function() {
     if(yesInput.checked === true) {
@@ -84,8 +87,10 @@ addButton.addEventListener('click', function() {
     
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
-    displayLibrary()
-
+    createTableElements()
+    insertTableData()
+    createDeleteButton()
+    appendTableElements()
 })
 
 function removeBook(book){
