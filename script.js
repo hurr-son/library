@@ -67,8 +67,6 @@ function appendTableElements(){
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(status);
-        row.appendChild(remove);
-        remove.appendChild(rmButton)
         table.appendChild(row)
     }
     
@@ -83,16 +81,21 @@ noInput.addEventListener('click', function() {
      }
 })
 
+book = new Book('Lord of Rings', 'Tolkien', '545', 'Yes');
+
+addBookToLibrary(book)
+    createTableElements()
+    insertTableData()
+    appendTableElements()
+
+
+
 addButton.addEventListener('click', function() {
     
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     createTableElements()
     insertTableData()
-    createDeleteButton()
     appendTableElements()
 })
 
-function removeBook(book){
-    myLibrary.splice(book.id)
-}
