@@ -14,7 +14,7 @@ let title = '';
 let author = '';
 let pages = '';
 let status = '';
-let readSelect ='';
+let readSelect = '';
 
 
 
@@ -25,11 +25,15 @@ function Book(title, author, pages, status) {
     this.status = status
 }
 
+Book.prototype.getID = function() {
+    this.id = myLibrary.indexOf(this)
+}
+
 
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook)
-    newBook.id = myLibrary.indexOf(newBook);
+    newBook.getID()
 }
         
 function createTableElements(){  
