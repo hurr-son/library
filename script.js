@@ -8,14 +8,8 @@ let addButton = document.getElementById('addButton');
 let read = '';
 let book = {};
 let myLibrary = [];
-let row = '';
-let id = '';
-let title = '';
-let author = '';
-let pages = '';
-let status = '';
 let readSelect = '';
-
+let checkMark = '';
 
 
 function Book(title, author, pages, status) {
@@ -38,20 +32,23 @@ function addBookToLibrary(newBook) {
         
 function createTableElements(){  
 
-        row = document.createElement('tr')
-        id = document.createElement('td')
-        title = document.createElement('td')
-        author = document.createElement('td')
-        pages = document.createElement('td')
-        status = document.createElement('td')
-        readSelect = document.createElement('SELECT')
+        row = document.createElement('tr');
+        id = document.createElement('td');
+        title = document.createElement('td');
+        author = document.createElement('td');
+        pages = document.createElement('td');
+        select = document.createElement('td');
+        checkMark = document.createElement('input');
+        checkMark.type = 'checkbox';
+        readSelect = document.createElement('SELECT');
         let option1 = document.createElement('option');
         let option2 = document.createElement('option');
         option1.text = 'Yes';
         option2.text = 'No';
         readSelect.add(option1);
         readSelect.add(option2);
-
+        
+        console.log(checkMark);
       }
 
 function createDeleteButton(){
@@ -69,6 +66,7 @@ function insertTableData(){
         author.innerHTML = `${book.author}`;
         pages.innerHTML = `${book.pages}`;
         readSelect.value = read
+        
     }
 
 function appendTableElements(){ 
@@ -78,8 +76,18 @@ function appendTableElements(){
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(readSelect);
-        table.appendChild(row)
+        row.appendChild(select);
+        select.appendChild(checkMark);
+        table.appendChild(row);
     }
+
+
+function deleteBook() {
+    if(checkMark.checked === true) {
+     return checkMark.parentNode
+    }
+}
+ 
     
 yesInput.addEventListener('click', function() {
     if(yesInput.checked === true) {
@@ -109,3 +117,4 @@ addButton.addEventListener('click', function() {
     appendTableElements()
 })
 
+console.log(table.children[1].children[0].innerHTML);
