@@ -13,6 +13,7 @@ let deleteArray = [];
 let readSelect = '';
 let checkMark = '';
 let checkMarks = [];
+let rows = [];
 
 
 function Book(title, author, pages, status) {
@@ -82,6 +83,10 @@ function appendTableElements(){
     table.appendChild(row);
 }
 
+function addRowToRows(){
+    rows.push(row)
+}
+
 
 yesInput.addEventListener('click', function() {
     if(yesInput.checked === true) {
@@ -99,9 +104,11 @@ addButton.addEventListener('click', function() {
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     createTableElements()
+    addRowToRows()
     insertTableData()
     appendTableElements()
     console.log(myLibrary);
+    console.log(rows[`${book.id}`]);
     
 })
 
@@ -137,12 +144,18 @@ function removeAllChildNodes(parent) {
     }
 }
 deleteButton.addEventListener('click', function() {
-    console.log(myLibrary)
-    for(book in myLibrary) {
+    console.log(book.id)
+    
  
-        removeAllChildNodes(row);
+        rows.forEach(row => {
+
+            if(checkMarks[row.id].checked === true) {
+                removeAllChildNodes(rows[book.id])
+            }
+
+        })
         
-    }
+    
     
     //I want to delete the book object from the library array
     myLibrary.splice(`${checkMark.id}`)
@@ -150,15 +163,6 @@ deleteButton.addEventListener('click', function() {
     
     //Then append the library elements
 
-    // for(entry in myLibrary){
-    //     book =  new Book(`${book.title}`, `${book.author}`, `${book.page}`, `${read}`)
-    // addBookToLibrary(book)
-    // createTableElements()
-    // insertTableData()
-    // appendTableElements()
-        
-    // }
+    
     
 })
-
-console.log(table);
