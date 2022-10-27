@@ -5,6 +5,7 @@ let pageInput = document.getElementById('pages');
 let yesInput = document.getElementById('yes');
 let noInput = document.getElementById('no');
 let addButton = document.getElementById('addButton');
+let deleteButton = document.getElementById('deleteButton');
 let read = '';
 let book = {};
 let myLibrary = [];
@@ -40,6 +41,11 @@ function createTableElements(){
     author = document.createElement('td');
     pages = document.createElement('td');
     select = document.createElement('td');
+    row.id =  `${book.id}`
+    id.id =  `${book.id}`
+    title.id =  `${book.id}`
+    pages.id =  `${book.id}`
+    select.id =  `${book.id}`
     checkMark = document.createElement('input');
     checkMark.type = 'checkbox';
     checkMark.id = `${book.id}`
@@ -95,6 +101,7 @@ addButton.addEventListener('click', function() {
     createTableElements()
     insertTableData()
     appendTableElements()
+    console.log(myLibrary);
     
 })
 
@@ -107,17 +114,51 @@ addButton.addEventListener('click', function() {
 
 })
 
-addButton.click()
 
+addButton.click()
 checkMarks.forEach(input => {input.addEventListener('change', function(){
     
-
+    
     if(input.checked === true) {
-
-    deleteArray.push(checkMark.id);
-    console.log(deleteArray);
+        
+        deleteArray.push(checkMark.id);
+        console.log(deleteArray);
     }
-
+    
     else {}
-
+    
 })})
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        
+        parent.removeChild(parent.firstChild);
+
+    }
+}
+deleteButton.addEventListener('click', function() {
+    console.log(myLibrary)
+    for(book in myLibrary) {
+ 
+        removeAllChildNodes(row);
+        
+    }
+    
+    //I want to delete the book object from the library array
+    myLibrary.splice(`${checkMark.id}`)
+    
+    
+    //Then append the library elements
+
+    // for(entry in myLibrary){
+    //     book =  new Book(`${book.title}`, `${book.author}`, `${book.page}`, `${read}`)
+    // addBookToLibrary(book)
+    // createTableElements()
+    // insertTableData()
+    // appendTableElements()
+        
+    // }
+    
+})
+
+console.log(table);
