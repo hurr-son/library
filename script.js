@@ -53,13 +53,6 @@ function createTableElements(){
     console.log(table.rows)
 }
 
-function createDeleteButton(){
-        
-    rmButton = document.createElement('button');
-    rmButton.style.padding = '.1rem';
-    rmButton.innerHTML = 'X';
-    rmButton.classList.add('remove-button');
-}
 
 function insertTableData(){
     
