@@ -108,7 +108,7 @@ addButton.addEventListener('click', function() {
     insertTableData()
     appendTableElements()
     console.log(myLibrary);
-    console.log(rows[`${book.id}`]);
+    console.log(rows[book.id]);
     
 })
 
@@ -126,13 +126,11 @@ addButton.click()
 checkMarks.forEach(input => {input.addEventListener('change', function(){
     
     
-    if(input.checked === true) {
+    
         
         deleteArray.push(checkMark.id);
-        console.log(deleteArray);
-    }
     
-    else {}
+    console.log(deleteArray);
     
 })})
 
@@ -144,16 +142,9 @@ function removeAllChildNodes(parent) {
     }
 }
 deleteButton.addEventListener('click', function() {
-    console.log(book.id)
+    
     
  
-        rows.forEach(row => {
-
-            if(checkMarks[row.id].checked === true) {
-                removeAllChildNodes(rows[book.id])
-            }
-
-        })
         
     
     
@@ -166,3 +157,9 @@ deleteButton.addEventListener('click', function() {
     
     
 })
+
+
+
+for(entry in deleteArray) {
+    removeAllChildNodes(rows[book.id])
+}
