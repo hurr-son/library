@@ -9,11 +9,10 @@ let deleteButton = document.getElementById('deleteButton');
 let read = '';
 let book = {};
 let myLibrary = [];
-let deleteArray = [];
 let readSelect = '';
-let checkMark = '';
-let checkMarks = [];
 let rows = [];
+let xButton = '';
+let xButtons = [];
 
 
 function Book(title, author, pages, status) {
@@ -41,23 +40,18 @@ function createTableElements(){
     title = document.createElement('td');
     author = document.createElement('td');
     pages = document.createElement('td');
-    select = document.createElement('td');
-    row.id =  `${book.id}`
-    id.id =  `${book.id}`
-    title.id =  `${book.id}`
-    pages.id =  `${book.id}`
-    select.id =  `${book.id}`
-    checkMark = document.createElement('input');
-    checkMark.type = 'checkbox';
-    checkMark.id = `${book.id}`
     readSelect = document.createElement('SELECT');
+    buttonTd = document.createElement('td')
+    xButton = document.createElement('button')
+    xButton.style.padding = '.1rem';
+    xButton.innerHTML = 'X';
     let option1 = document.createElement('option');
     let option2 = document.createElement('option');
     option1.text = 'Yes';
     option2.text = 'No';
     readSelect.add(option1);
     readSelect.add(option2);
-    console.log(table.rows)
+    
 }
 
 
@@ -78,13 +72,17 @@ function appendTableElements(){
     row.appendChild(author);
     row.appendChild(pages);
     row.appendChild(readSelect);
-    row.appendChild(select);
-    select.appendChild(checkMark);
+    buttonTd.appendChild(xButton)
+    row.appendChild(buttonTd);
     table.appendChild(row);
 }
 
 function addRowToRows(){
     rows.push(row)
+}
+
+function addXButtonToXButtons(){
+    xButtons.push(xButton);
 }
 
 
@@ -105,34 +103,22 @@ addButton.addEventListener('click', function() {
     addBookToLibrary(book)
     createTableElements()
     addRowToRows()
+    addXButtonToXButtons()
     insertTableData()
     appendTableElements()
-    console.log(myLibrary);
-    console.log(rows[book.id]);
+    console.log(xButtons)
+    xButton.id = `${book.id}`
+    
+    xButtons.forEach(button => {button.addEventListener('click', function(){
+        removeAllChildNodes(rows[xButton.id])
+    
+    
+    })})
     
 })
 
-addButton.addEventListener('click', function() {
-    
-    
-    checkMarks = [];
-    checkMarks = document.querySelectorAll('input[type="checkbox"]');
-    console.log(checkMarks);
-
-})
 
 
-addButton.click()
-checkMarks.forEach(input => {input.addEventListener('change', function(){
-    
-    
-    
-        
-        deleteArray.push(checkMark.id);
-    
-    console.log(deleteArray);
-    
-})})
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -141,25 +127,7 @@ function removeAllChildNodes(parent) {
 
     }
 }
-deleteButton.addEventListener('click', function() {
-    
-    
- 
-        
-    
-    
-    //I want to delete the book object from the library array
-    myLibrary.splice(`${checkMark.id}`)
-    
-    
-    //Then append the library elements
-
-    
-    
-})
 
 
+addButton.click()
 
-for(entry in deleteArray) {
-    removeAllChildNodes(rows[book.id])
-}
