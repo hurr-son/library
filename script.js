@@ -83,6 +83,14 @@ function addRowToRows(){
 
 function addXButtonToXButtons(){
     xButtons.push(xButton);
+    console.log(xButtons);
+    console.log(rows);
+    
+    xButtons.forEach(button => {button.addEventListener('click', function(){
+        removeAllChildNodes(rows[xButton.id])
+        xButtons.splice(book.id);
+        rows.splice(book.id)
+    })})
 }
 
 
@@ -109,11 +117,6 @@ addButton.addEventListener('click', function() {
     console.log(xButtons)
     xButton.id = `${book.id}`
     
-    xButtons.forEach(button => {button.addEventListener('click', function(){
-        removeAllChildNodes(rows[xButton.id])
-    
-    
-    })})
     
 })
 
@@ -130,4 +133,6 @@ function removeAllChildNodes(parent) {
 
 
 addButton.click()
+
+
 
