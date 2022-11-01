@@ -10,9 +10,7 @@ let read = '';
 let book = {};
 let myLibrary = [];
 let readSelect = '';
-let rows = [];
-let xButton = '';
-let xButtons = [];
+
 
 
 function Book(title, author, pages, status) {
@@ -77,23 +75,6 @@ function appendTableElements(){
     table.appendChild(row);
 }
 
-function addRowToRows(){
-    rows.push(row)
-}
-
-function addXButtonToXButtons(){
-    xButtons.push(xButton);
-    console.log(xButtons);
-    console.log(rows);
-    
-    xButtons.forEach(button => {button.addEventListener('click', function(){
-        removeAllChildNodes(rows[xButton.id])
-        xButtons.splice(book.id);
-        rows.splice(book.id)
-    })})
-}
-
-
 yesInput.addEventListener('click', function() {
     if(yesInput.checked === true) {
         read = 'Yes'  
@@ -109,19 +90,8 @@ addButton.addEventListener('click', function() {
     
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
-    createTableElements()
-    addRowToRows()
-    addXButtonToXButtons()
-    insertTableData()
-    appendTableElements()
-    console.log(xButtons)
-    xButton.id = `${book.id}`
-    
     
 })
-
-
-
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -132,7 +102,26 @@ function removeAllChildNodes(parent) {
 }
 
 
-addButton.click()
+function displayLibrary(){
+    for(entry in myLibrary) {
+        createTableElements()
+        insertTableData()
+        appendTableElements()
+        
+    }
+    
+}
 
-
+function deleteRow(r) {
+    document.getElementById("library-table").deleteRow(r);
+  }
+  
+  
+  addButton.click()
+  addButton.click()
+  addButton.click()
+  addButton.click()
+  
+  displayLibrary()
+  
 
