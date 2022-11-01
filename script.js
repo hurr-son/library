@@ -10,6 +10,7 @@ let read = '';
 let book = {};
 let myLibrary = [];
 let readSelect = '';
+let xButtons = [];
 
 
 
@@ -23,6 +24,7 @@ function Book(title, author, pages, status) {
 Book.prototype.getID = function() {
     this.id = myLibrary.indexOf(this)
 }
+
 
 
 
@@ -43,6 +45,8 @@ function createTableElements(){
     xButton = document.createElement('button')
     xButton.style.padding = '.1rem';
     xButton.innerHTML = 'X';
+    xButton.id = book.id
+
     let option1 = document.createElement('option');
     let option2 = document.createElement('option');
     option1.text = 'Yes';
@@ -50,6 +54,10 @@ function createTableElements(){
     readSelect.add(option1);
     readSelect.add(option2);
     
+}
+
+function addXButtonToArray(){
+    xButtons.push(xButton)
 }
 
 
@@ -90,39 +98,22 @@ addButton.addEventListener('click', function() {
     
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
+    createTableElements()
+    addXButtonToArray()
+    insertTableData()
+    appendTableElements()
+    console.log(xButtons)
     
 })
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        
-        parent.removeChild(parent.firstChild);
-
-    }
-}
-
-
-function displayLibrary(){
-    for(entry in myLibrary) {
-        createTableElements()
-        insertTableData()
-        appendTableElements()
-        
-    }
-    
-}
-
 function deleteRow(r) {
-    var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("library-table").deleteRow(i);
+    document.getElementById("library-table").deleteRow(r);
+    myLibrary.splice(r);
   }
-  
-  xButton.addEventListener('click', deleteRow(this));
-  
-addButton.click()
-addButton.click()
-addButton.click()
-addButton.click()
 
-displayLibrary()
+table.addEventListener('click', function(){
+    deleteRow(book.id)
+
+})
+  
 
