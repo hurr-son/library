@@ -41,6 +41,7 @@ function createTableElements(){
     pages = document.createElement('td');
     readSelect = document.createElement('SELECT');
     buttonTd = document.createElement('td')
+    buttonTd.classList.add('buttonTd')
     xButton = document.createElement('button')
     xButton.style.padding = '.1rem';
     xButton.innerHTML = 'X';
@@ -119,22 +120,22 @@ function onDeleteRow(e){
         const btn = e.target;
         btn.closest('tr').remove();
         myLibrary.splice(btn.id)
-}
-
+    }
+    
 table.addEventListener('click', onDeleteRow);
-
-const form = document.querySelector('form');
+    
+const form = document.getElementById('whole-form');
 const newBtn = document.getElementById('newBook');
 const closeBtn = document.getElementById('close');
 
 newBtn.addEventListener('click', function(){
-    form.hidden = false
+        form.hidden = false
 })
+    
+newBtn.click()
+yesInput.click()
+addButton.click()
 
 closeBtn.addEventListener('click', function(){
     form.hidden = true
 })
-
-newBtn.click()
-yesInput.click()
-addButton.click()
