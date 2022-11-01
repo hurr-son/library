@@ -10,24 +10,24 @@
 </head>
 <body>
     <main>
-        <button>NEW BOOK</button>
-        <form>
+        <button id="newBook">New Book</button>
+        <form hidden>
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title" value="Harry Potter"><br>
             <label for="author">Author</label>
             <input type="text" name="author" id="author" value="JK Rowling"><br>
             <label for="pages">Pages</label>
             <input type="text" name="pages" id="pages" value="485"><br>
+            <p>Have you read this book?</p>
+            <form>    
+                <input type="radio" name="read" id="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" name="read" id="no">
+                <label for="no">No</label>
+                <button type="button" id="addButton">Add</button>
+            </form>
         </form>
-        <p>Have you read this book?</p>
-        <form>    
-            <input type="radio" name="read" id="yes">
-            <label for="yes">Yes</label>
-            <input type="radio" name="read" id="no">
-            <label for="no">No</label>
-        </form>
-        <button type="button" id="addButton">Add</button>
-        <table id="library-table">
+        <table hidden id="library-table">
             <tr>
                 <th>Title</th>
                 <th>Author</th>
