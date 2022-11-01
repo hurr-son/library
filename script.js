@@ -46,33 +46,26 @@ function createTableElements(){
     xButton.innerHTML = 'X';
     xButton.classList.add('xButton');
     xButton.id = book.id
-    console.log(xButton)
-
     let option1 = document.createElement('option');
     let option2 = document.createElement('option');
     option1.text = 'Yes';
     option2.text = 'No';
     readSelect.add(option1);
     readSelect.add(option2);
-    
 }
 
 function addXButtonToArray(){
     xButtons.push(xButton)
 }
 
-
 function insertTableData(){
-    
     title.innerHTML = `${book.title}`;
     author.innerHTML = `${book.author}`;
     pages.innerHTML = `${book.pages}`;
-    readSelect.value = read
-    
+    readSelect.value = read    
 }
 
 function appendTableElements(){ 
-    
     row.appendChild(title);
     row.appendChild(author);
     row.appendChild(pages);
@@ -94,15 +87,19 @@ noInput.addEventListener('click', function() {
 })
 
 addButton.addEventListener('click', function() {
+    if((titleInput.value === '') || 
+        (authorInput.value === '') ||
+        (pageInput.value === '') ||
+        (read === '')) {
+            return
+        }    
     table.hidden = false
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     createTableElements()
     addXButtonToArray()
     insertTableData()
-    appendTableElements()
-    console.log(xButtons)
-    
+    appendTableElements()   
 })
 
 
@@ -113,20 +110,19 @@ function onDeleteRow(e){
         const btn = e.target;
         btn.closest('tr').remove();
         myLibrary.splice(btn.id)
-
 }
-
-
 
 table.addEventListener('click', onDeleteRow);
 
-
 const form = document.querySelector('form');
-
 const newBtn = document.getElementById('newBook');
+const closeBtn = document.getElementById('close');
 
 newBtn.addEventListener('click', function(){
     form.hidden = false
 })
 
-console.log(form.hidden)
+closeBtn.addEventListener('click', function(){
+    form.hidden = true
+})
+
