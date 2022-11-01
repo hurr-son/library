@@ -1,4 +1,4 @@
-let table = document.getElementById('library-table');
+const table = document.getElementById('library-table');
 let titleInput = document.getElementById('title');
 let authorInput = document.getElementById('author');
 let pageInput = document.getElementById('pages');
@@ -36,7 +36,6 @@ function addBookToLibrary(newBook) {
 function createTableElements(){  
 
     row = document.createElement('tr');
-    id = document.createElement('td');
     title = document.createElement('td');
     author = document.createElement('td');
     pages = document.createElement('td');
@@ -45,7 +44,9 @@ function createTableElements(){
     xButton = document.createElement('button')
     xButton.style.padding = '.1rem';
     xButton.innerHTML = 'X';
+    xButton.classList.add('xButton');
     xButton.id = book.id
+    console.log(xButton)
 
     let option1 = document.createElement('option');
     let option2 = document.createElement('option');
@@ -63,7 +64,6 @@ function addXButtonToArray(){
 
 function insertTableData(){
     
-    id.innerHTML = `${book.id}`;
     title.innerHTML = `${book.title}`;
     author.innerHTML = `${book.author}`;
     pages.innerHTML = `${book.pages}`;
@@ -73,7 +73,6 @@ function insertTableData(){
 
 function appendTableElements(){ 
     
-    row.appendChild(id);
     row.appendChild(title);
     row.appendChild(author);
     row.appendChild(pages);
@@ -106,14 +105,17 @@ addButton.addEventListener('click', function() {
     
 })
 
-function deleteRow(r) {
-    document.getElementById("library-table").deleteRow(r);
-    myLibrary.splice(r);
-  }
 
-table.addEventListener('click', function(){
-    deleteRow(book.id)
+function onDeleteRow(e){
+    if(!e.target.classList.contains('xButton')) {
+        return;
+    }
+        const btn = e.target;
+        btn.closest('tr').remove();
+        myLibrary.splice(btn.id)
 
-})
-  
+}
 
+
+
+table.addEventListener('click', onDeleteRow);
