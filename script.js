@@ -99,7 +99,16 @@ addButton.addEventListener('click', function() {
     createTableElements()
     addXButtonToArray()
     insertTableData()
-    appendTableElements()   
+    appendTableElements()
+    titleInput.value = ''
+    authorInput.value = ''
+    pageInput.value = ''
+    yesInput.checked = false
+    noInput.checked = false
+    
+
+    
+
 })
 
 
@@ -126,3 +135,6 @@ closeBtn.addEventListener('click', function(){
     form.hidden = true
 })
 
+newBtn.click()
+yesInput.click()
+addButton.click()
