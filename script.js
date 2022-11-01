@@ -113,15 +113,16 @@ function displayLibrary(){
 }
 
 function deleteRow(r) {
-    document.getElementById("library-table").deleteRow(r);
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("library-table").deleteRow(i);
   }
   
+  xButton.addEventListener('click', deleteRow(this));
   
-  addButton.click()
-  addButton.click()
-  addButton.click()
-  addButton.click()
-  
-  displayLibrary()
-  
+addButton.click()
+addButton.click()
+addButton.click()
+addButton.click()
+
+displayLibrary()
 
