@@ -94,7 +94,7 @@ noInput.addEventListener('click', function() {
 })
 
 addButton.addEventListener('click', function() {
-    
+    table.hidden = false
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     createTableElements()
@@ -119,3 +119,14 @@ function onDeleteRow(e){
 
 
 table.addEventListener('click', onDeleteRow);
+
+
+const form = document.querySelector('form');
+
+const newBtn = document.getElementById('newBook');
+
+newBtn.addEventListener('click', function(){
+    form.hidden = false
+})
+
+console.log(form.hidden)
