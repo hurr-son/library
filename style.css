@@ -1,8 +1,23 @@
-main{
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 700px;
+  gap: 3rem;
 }
 
 
+
+#table-wrapper{
+  border: 3px black solid;
+  max-height: 30rem;
+  overflow: scroll;
+}
 
 table {
     border-collapse: collapse;
@@ -23,3 +38,4 @@ table {
   td {
     text-align: center;
   }
+
