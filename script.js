@@ -88,24 +88,24 @@ noInput.addEventListener('click', function() {
 })
 
 addButton.addEventListener('click', function() {
-    if((titleInput.value === '') || 
-        (authorInput.value === '') ||
-        (pageInput.value === '') ||
-        (read === '')) {
-            return
-        }    
-    table.hidden = false
+    // if((titleInput.value === '') || 
+    //     (authorInput.value === '') ||
+    //     (pageInput.value === '') ||
+    //     (read === '')) {
+    //         return
+    //     }    
+    // table.hidden = false
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     createTableElements()
     addXButtonToArray()
     insertTableData()
     appendTableElements()
-    titleInput.value = ''
-    authorInput.value = ''
-    pageInput.value = ''
-    yesInput.checked = false
-    noInput.checked = false
+    // titleInput.value = ''
+    // authorInput.value = ''
+    // pageInput.value = ''
+    // yesInput.checked = false
+    // noInput.checked = false
     
 
     
@@ -128,14 +128,14 @@ const form = document.getElementById('whole-form');
 const newBtn = document.getElementById('newBook');
 const closeBtn = document.getElementById('close');
 
-newBtn.addEventListener('click', function(){
-        form.hidden = false
-})
+// newBtn.addEventListener('click', function(){
+//         form.hidden = false
+// })
     
 newBtn.click()
 yesInput.click()
 addButton.click()
 
-closeBtn.addEventListener('click', function(){
-    form.hidden = true
-})
+// closeBtn.addEventListener('click', function(){
+//     form.hidden = true
+// })
