@@ -39,7 +39,10 @@ function createTableElements(){
     title = document.createElement('td');
     author = document.createElement('td');
     pages = document.createElement('td');
+    select = document.createElement('td');
     readSelect = document.createElement('SELECT');
+    selectContainer = document.createElement('div');
+    selectContainer.classList.add('selectDiv')
     buttonTd = document.createElement('td')
     buttonTd.classList.add('buttonTd')
     xButton = document.createElement('button')
@@ -70,7 +73,8 @@ function appendTableElements(){
     row.appendChild(title);
     row.appendChild(author);
     row.appendChild(pages);
-    row.appendChild(readSelect);
+    row.appendChild(select);
+    select.appendChild(readSelect);
     buttonTd.appendChild(xButton)
     row.appendChild(buttonTd);
     table.appendChild(row);
