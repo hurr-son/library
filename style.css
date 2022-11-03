@@ -1,22 +1,34 @@
-body{
+body,
+html {
   margin: 0;
   padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
 .page-wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 700px;
-  gap: 3rem;
+  height: 100vh;
+  width: 100vw;
+  gap: 20rem;
 }
 
 
 
 #table-wrapper{
-  border: 3px black solid;
+  border: 2px solid black;
   max-height: 30rem;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.table-headers {
+  position: sticky;
+  top: 0;
 }
 
 table {
@@ -35,7 +47,12 @@ table {
     background-color: rgb(235,235,235);
   }
   
-  td {
+  td,
+  tr {
     text-align: center;
   }
+
+
+
+
 
