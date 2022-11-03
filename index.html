@@ -9,10 +9,11 @@
     <title>Library</title>
 </head>
 <body>
-    <main>
+    <main></main>
+    <div class="page-wrapper">
         <div id="left-wrapper">
         <button id="newBook">New Book</button>
-        <form id="whole-form" hidden>
+        <form id="whole-form">
             <button id="close">Close</button>
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title" value="Harry Potter"><br>
@@ -31,14 +32,17 @@
         </form>
         </div>
         <div id="right-wrapper">
-        <table hidden id="library-table">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Pages</th>
-                <th>Read?</th>
-            </tr>
-        </table>
+            <div id="table-wrapper">
+                <table id="library-table">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read?</th>
+                </tr>
+                </table>
+            </div> 
+        </div>
         </div>
     </main>
     
