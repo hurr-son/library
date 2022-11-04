@@ -40,6 +40,7 @@ function createTableElements(){
     author = document.createElement('td');
     pages = document.createElement('td');
     select = document.createElement('td');
+    select.classList.add('read-select')
     readSelect = document.createElement('SELECT');
     selectContainer = document.createElement('div');
     selectContainer.classList.add('selectDiv')
@@ -48,6 +49,7 @@ function createTableElements(){
     xButton = document.createElement('button')
     xButton.style.padding = '.1rem';
     xButton.innerHTML = 'X';
+    xButton.style.fontSize = '1rem'
     xButton.classList.add('xButton');
     xButton.id = book.id
     let option1 = document.createElement('option');
@@ -136,7 +138,7 @@ const closeBtn = document.getElementById('close');
 //         form.hidden = false
 // })
     
-newBtn.click()
+// newBtn.click()
 yesInput.click()
 addButton.click()
 
