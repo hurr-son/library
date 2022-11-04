@@ -9,28 +9,42 @@
     <title>Library</title>
 </head>
 <body>
-    <main></main>
-    <div class="page-wrapper">
-        <div id="left-wrapper">
-        <button id="newBook">New Book</button>
-        <form id="whole-form">
-            <button id="close">Close</button>
-            <label for="title">Book Title</label>
-            <input type="text" name="title" id="title" value="Harry Potter"><br>
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author" value="JK Rowling"><br>
-            <label for="pages">Pages</label>
-            <input type="text" name="pages" id="pages" value="485"><br>
-            <p>Have you read this book?</p>
-            <form>    
-                <input type="radio" name="read" id="yes">
-                <label for="yes">Yes</label>
-                <input type="radio" name="read" id="no">
-                <label for="no">No</label>
-                <button type="button" id="addButton">Add</button>
-            </form>
-        </form>
-        </div>
+    <main>
+        <header>
+            <h1>Da Books</h1>
+            <h5><em>for reading...</em></h3>
+        </header>   
+            <div class="page-wrapper">
+                <div id="left-wrapper">
+                <!-- <button id="newBook">New Book</button> -->
+                <form class="whole-form">
+                    <!-- <button id="close">Close</button> -->
+                    <div class="text-form">
+                        <div class="text-input">
+                            <label for="title">Book Title</label>
+                            <input type="text" name="title" id="title" value="Dune"><br>
+                        </div>
+                        <div class="text-input">
+                            <label for="author">Author</label>
+                            <input type="text" name="author" id="author" value="Frank Herbert"><br>
+                        </div>
+                        <div class="text-input">    
+                            <label for="pages">Pages</label>
+                            <input type="text" name="pages" id="pages" value="485"><br>
+                        </div>
+                    </div>
+                    <form class="radio-form">
+                        <div class="radio-wrapper">     
+                    <p>Have you read this book?</p>
+                            <input type="radio" name="read" id="yes">
+                            <label for="yes">Yes</label>
+                            <input type="radio" name="read" id="no">
+                            <label for="no">No</label>
+                        </div>     
+                        <button type="button" id="addButton">Add</button>
+                    </form>
+                </form>
+                </div>
         <div id="right-wrapper">
            <div class="scroll-wrapper"> 
             <div id="table-wrapper">
