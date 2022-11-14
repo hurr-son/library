@@ -13,17 +13,31 @@ let readSelect = '';
 let xButtons = [];
 
 
+class Book {
 
-function Book(title, author, pages, status) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.status = status
-}
+    constructor(title, author, pages, status) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.status = status
+    }
 
-Book.prototype.getID = function() {
+    getID() {
     this.id = myLibrary.indexOf(this)
+    }
 }
+
+
+// function Book(title, author, pages, status) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.status = status
+// }
+
+// Book.prototype.getID = function() {
+//     this.id = myLibrary.indexOf(this)
+// }
 
 
 
