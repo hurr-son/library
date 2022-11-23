@@ -1,6 +1,6 @@
 # library
 
-Finished another fun project from The Odin Project's Javascript section.
+Finished another fun project.
 This project tested my knowledge related to javascript's object constructors, the objects they make, and arrays. 
 I was most hungup on finding a solution for a delete button on each entry.
 I didn't know about a certain method, which I can imagine is so common, given the depth of javascript. 
