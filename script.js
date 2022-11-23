@@ -60,9 +60,6 @@ function createTableElements(){
     readSelect.add(option2);
 }
 
-function addXButtonToArray(){
-    xButtons.push(xButton)
-}
 
 function insertTableData(){
     title.innerHTML = `${book.title}`;
@@ -104,7 +101,6 @@ addButton.addEventListener('click', function() {
     book =  new Book(`${titleInput.value}`, `${authorInput.value}`, `${pageInput.value}`, `${read}`)
     addBookToLibrary(book)
     createTableElements()
-    addXButtonToArray()
     insertTableData()
     appendTableElements()
     titleInput.value = ''
@@ -130,17 +126,40 @@ function onDeleteRow(e){
     
 table.addEventListener('click', onDeleteRow);
     
-const form = document.getElementById('whole-form');
-const newBtn = document.getElementById('newBook');
-const closeBtn = document.getElementById('close');
 
-// newBtn.addEventListener('click', function(){
-//         form.hidden = false
-// })
-    
-// newBtn.click()
+const book1 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book2 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book3 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book4 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book5 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book6 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book7 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book8 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book9 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book10 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book11 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
+const book12 = new Book('Dune', 'Frank Herbert', '412', 'Yes')
 
+addBookToLibrary(book1)
+addBookToLibrary(book2)
+addBookToLibrary(book3)
+addBookToLibrary(book4)
+addBookToLibrary(book5)
+addBookToLibrary(book6)
+addBookToLibrary(book7)
+addBookToLibrary(book8)
+addBookToLibrary(book9)
+addBookToLibrary(book10)
+addBookToLibrary(book11)
+addBookToLibrary(book12)
+console.log(myLibrary);
 
-// closeBtn.addEventListener('click', function(){
-//     form.hidden = true
-// })
+for(item of myLibrary) {
+    createTableElements()
+    title.innerHTML = `${item.title}`;
+    author.innerHTML = `${item.author}`;
+    pages.innerHTML = `${item.pages}`;
+    readSelect.value = `${item.status}`;
+    appendTableElements()
+}
+console.log(myLibrary)
